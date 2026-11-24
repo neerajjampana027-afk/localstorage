@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Page</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            width: 300px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Signup Page</h2>
+
+        <input type="text" id="name" placeholder="Enter Name">
+
+        <input type="email" id="gmail" placeholder="Enter Gmail">
+
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <button onclick="signup()">Sign Up</button>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script>
+
+        function signup() {
+
+            let name = document.getElementById("name").value;
+            let gmail = document.getElementById("gmail").value;
+            let password = document.getElementById("password").value;
+
+            if (name === "" || gmail === "" || password === "") {
+                document.getElementById("message").innerHTML =
+                    "Please fill all fields!";
+                return;
+            }
+
+            // Store data in Local Storage
+            localStorage.setItem("Name", name);
+            localStorage.setItem("Gmail", gmail);
+            localStorage.setItem("Password", password);
+
+            document.getElementById("message").innerHTML =
+                "Signup Successful!";
+
+        }
+
+    </script>
+
+</body>
+</html>
